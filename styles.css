@@ -1,0 +1,266 @@
+html {
+  background: url("https://images-na.ssl-images-amazon.com/images/I/81CWdcnuQUL._AC_SY355_.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+.flip-card {
+    background-color: transparent;
+    /*width: 600px;
+    height: 0px;
+    margin: 100px 550px;*/
+    width:300px;
+    height: 200px;
+    margin:300px 550px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+   /* width: 100%;
+    height: 100%;*/
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  /*.flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }*/
+  
+  /* Style the back side */
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+
+
+.flip-card-back {
+  width: 300px;
+  margin: 150px auto;
+  height: 200px;
+  position: relative;
+  background: #BBBBBB;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px -3px #989898;
+}
+
+.top,
+.bottom {
+  border-left: 110px solid transparent;
+  border-right: 110px solid transparent;
+  width: 0;
+  height: 0;
+  position: relative;
+}
+
+.top {
+  border-bottom: 80px solid #05535e;
+  top: -80px;
+  transform-origin: bottom;
+  z-index: 3;
+  transition: all .8s ease;
+  transform: rotateX(0deg);
+}
+
+.bottom {
+  border-bottom: 80px solid #a0c9f0;
+  top: -40px;
+  z-index: 4;
+}
+
+.left,
+.right {
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  top: 0;
+  z-index: 4;
+}
+
+.left {
+  border-left: 110px solid #1686c7;
+  position: absolute;
+  left: 0;
+}
+
+.right {
+  border-right: 110px solid #1686c7;
+  position: absolute;
+  right: 0;
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: all 1s ease;
+  z-index: 3;
+  transition-delay: 0.4s;
+  top: -35%;
+}
+
+/*.paper {
+  width: 90%;
+  height: 90%;
+  background: #f6f8e7;
+  margin: 6px auto 0;
+  box-shadow: 0px 0px 2px 0px #909090;
+  transition: all 0.5s ease-out;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}*/
+
+.flip-card-back.fold .back {
+  z-index: 3;
+  transition-delay: 0.3s;
+  top: 0;
+}
+
+.flip-card-back.fold .top {
+  transition-delay: .6s;
+  transform: rotateX(180deg);
+  z-index: 6;
+}
+
+/*.paper .line {
+  height: 2px;
+  background: #999;
+  width: 10%;
+  margin: 4px 0;
+}
+
+.paper .line.one {
+  width: 50%;
+}
+
+.paper .line.two {
+  width: 30%;
+}
+
+.paper .line.three {
+  width: 80%;
+}*/
+
+/*back card*/
+
+.wrapper{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+.mail{
+  width:300px;
+  height:200px;
+  background: #e7e7de;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  border:.3px solid black;
+  position:relative;
+  transform-style:preserve-3d;
+  cursor:pointer;
+}
+.mail:before{
+  content:"";
+  position: absolute;
+  top:0;
+  right:0;
+  border-left: 150px solid #AAAAAA;
+  border-right: 150px solid #AAAAAA;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid #BBBBBB;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  z-index:6;
+}
+.mail:after{
+  content:"";
+  position: absolute;
+  top:0;
+  left:0;
+  border-left: 150px solid #AAAAAA;
+  border-right: 150px solid transparent;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid #BBBBBB;
+  border:.3px solid black;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  z-index:4;
+}
+.cover:before{
+  content:"";
+  position: absolute;
+  top:0;
+  left:0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 100px solid #cdc7be;
+  border-bottom: 100px solid transparent;
+  z-index:6;
+  transform-origin:top;
+  transform: rotateX(0deg);
+  transition: all 1s 1s ease;
+}
+.letter{
+  position: absolute;
+  top:0;
+  left:10px;
+  background: #4B778D;
+  width:280px;
+  height:180px;
+  border-radius: 5px;
+  border:0 .3px .3px .3px solid black;
+  transition: all 1s ease;
+  z-index:5;
+}
+.letter h1{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:.5rem;
+  color:wheat;
+  font-weight:900;
+}
+.mail:hover .cover:before{
+  transform: rotateX(180deg);
+  transition: all 1s ease;
+}
+.mail:hover .letter{
+  top:-80px;
+  transition: all 1s 1s ease;
+}
+.letter:after{
+  zoom:150%;
+}
+
+/*letter overlay*/
+
+
+ 
